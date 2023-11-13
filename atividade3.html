@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+
+    <h2>JavaScript </h2>
+
+    <label for="newItem">Novo Item:</label>
+    <input type="text" id="newItem" value="">
+
+    <br>
+
+    <input type="radio" name="cores" value="red" checked> Vermelho
+    <input type="radio" name="cores" value="green"> Verde
+    <input type="radio" name="cores" value="blue"> Azul
+
+    <br>
+
+    <button id="addItemButton">Adicionar Item</button>
+
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <script>
+        document.getElementById("addItemButton").addEventListener("click", function() {
+            var listItem = document.createElement("li");
+
+            // Obter o valor do texto do input
+            var newItemText = document.getElementById("newItem").value;
+            var textNode = document.createTextNode(newItemText);
+
+            // Obter a cor selecionada
+            var selectedColor = document.querySelector('input[name="cores"]:checked').value;
+
+            // Estilizar o item da lista com a cor selecionada
+            listItem.style.color = selectedColor;
+
+            // Adicionar o texto ao item da lista
+            listItem.appendChild(textNode);
+
+            // Adicionar o item da lista à lista existente
+            document.getElementById("myList").appendChild(listItem);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .aprovado {
+            color: blue;
+        }
+
+        .reprovado {
+            color: red;
+        }
+    </style>
+    <title>Calculadora de Média</title>
+</head>
+<body>
+    <h1>Calculadora de Média</h1>
+
+    <script>
+        // Função para calcular a média e exibir a situação
+        function calcularMedia() {
+            // Obter notas do usuário usando prompt()
+            var nota1 = parseFloat(prompt("Digite a nota 1:"));
+            var nota2 = parseFloat(prompt("Digite a nota 2:"));
+
+            // Calcular a média
+            var media = (nota1 + nota2) / 2;
+
+            // Exibir a média
+            document.getElementById('media').innerHTML = media.toFixed(2);
+
+            // Exibir a situação
+            var situacaoElement = document.getElementById('situacao');
+
+            if (media >= 6) {
+                situacaoElement.innerHTML = 'APROVADO';
+                situacaoElement.className = 'aprovado';
+            } else {
+                situacaoElement.innerHTML = 'REPROVADO';
+                situacaoElement.className = 'reprovado';
+            }
+        }
+    </script>
+
+    <!-- Botão para chamar a função calcularMedia() -->
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <!-- Div para exibir resultado -->
+    <div id="resultado">
+        <span>Média: <span id="media"></span></span><br>
+        <span>Situação: <span id="situacao"></span></span>
+    </div>
+</body>
+</html>

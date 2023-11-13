@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .aprovado {
+            color: blue;
+        }
+
+        .reprovado {
+            color: red;
+        }
+    </style>
+    <title>Calculadora de Média</title>
+</head>
+<body>
+    <h1>Calculadora de Média</h1>
+
+    <label for="nota1">Nota 1:</label>
+    <input type="number" id="nota1" placeholder="Digite a nota 1">
+
+    <label for="nota2">Nota 2:</label>
+    <input type="number" id="nota2" placeholder="Digite a nota 2">
+
+    <button onclick="calcularMedia()">Calcular Média</button>
+
+    <div id="resultado">
+        <span>Média: <span id="media"></span></span><br>
+        <span>Situação: <span id="situacao"></span></span>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            var nota1 = parseFloat(document.getElementById('nota1').value);
+            var nota2 = parseFloat(document.getElementById('nota2').value);
+
+            var media = (nota1 + nota2) / 2;
+
+            document.getElementById('media').innerHTML = media.toFixed(2);
+
+            var situacaoElement = document.getElementById('situacao');
+
+            if (media >= 6) {
+                situacaoElement.innerHTML = 'APROVADO';
+                situacaoElement.className = 'aprovado';
+            } else {
+                situacaoElement.innerHTML = 'REPROVADO';
+                situacaoElement.className = 'reprovado';
+            }
+        }
+    </script>
+</body>
+</html>
